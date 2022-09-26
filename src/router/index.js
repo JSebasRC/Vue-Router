@@ -5,7 +5,14 @@ const router = createRouter ({
   history: createWebHistory(),
   routes:  [
     { path: '/', component: HomeView },
-    { path: '/about', component: import('../views/AboutView.vue') }
+    { path: '/about', component: () => import('../views/AboutView.vue')},
+    { path: '/chats', 
+      component: () => import('../views/ChatsView.vue'),
+      children: [
+        { path: ':chatsId', component: () => import('../views/ChatView.vue') }
+      ]
+    },
+    
   ]
 
 })
