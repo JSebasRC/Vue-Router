@@ -4,6 +4,17 @@ export default {
     return {
       username: ''
     }
+  },
+  methods: {
+    iniciar() {
+      this.$router.push({
+        path: '/chats',
+        query: {
+          variable1: 1,
+        },
+        replace: true
+      })
+    }
   }
 }
 </script>
@@ -12,5 +23,6 @@ export default {
   <main>
     <h3>Introduce tu nombre de usuario</h3>
     <input type="text" placeholder="username" v-model="username">
+    <button @click="iniciar">Iniciar</button>
   </main>
 </template>
